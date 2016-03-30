@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title></title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="" />
+		<link rel="shortcut icon" href=""> <!--favicon link-->
+
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-superhero.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+
+		<script src=""></script>
+	</head>
+
+	<body>
+
+	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+		<label for="phrase">Phrase : </label>
+		<input type="text" name="phrase" value="air">
+
+		<br>
+		<label for="from">From : </label><br>
+		<input type="radio" name="from" value="eng" checked="checked"> English
+		<input type="radio" name="from" value="malay"> Malay
+		<input type="radio" name="from" value="tamil"> Tamil
+
+		<br>
+		<label for="dest">Dest : </label><br>
+		<input type="radio" name="dest" value="eng"> English
+		<input type="radio" name="dest" value="msa" checked="checked"> Malay
+		<input type="radio" name="dest" value="tamil"> Tamil
+
+		<input type="submit" value="Process" />
+	</form>
+
+	<?php
+
+		//start API call
+		function dataTranslate($url) {
+			$ch = curl_init();
+			curl_setopt_array($ch, array(
+				CURLOPT_URL => $url,
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_SSL_VERIFYPEER => false,
+				CURLOPT_SSL_VERIFYHOST => 2
+			));
+
+		$result = curl_exec($ch);
+		curl_close($ch);
+		return $result;
+		}
+		//end API call
+
+		//start process call
+		function requestData($x, $y, $z) {
+			$baseURL = 'https://glosbe.com/gapi/translate?format=json&pretty=true';
+			$baseURL .= '&phrase='.$x.'&from='.$y.'&dest='.$z;
+
+			$data = dataTranslate($baseURL);
+			$storeResult = array();
+			$result = json_decode($data);
+			
+			if (isset($result->tuc)) {
+				foreach ($result->tuc as $trans) {
+					if (isset($trans->phrase)) {
+						$storeResults[] = $trans->phrase->text;
+					}
+				}
+			}
+
+			echo $storeResults[0];
+			}
+		//end process call
+
+		//start user input
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$phrase =  $_POST['phrase'];
+			$from = $_POST['from'];
+			$dest = $_POST['dest'];
+			requestData($phrase, $from, $dest);
+		}
+		//end user input
+
+		//$url = 'https://glosbe.com/gapi/translate?format=json&from=pol&dest=eng&phrase=witaj';		
+	?>
+
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrap.js"></script>	
+	<script src="js/jquery-ui.js"></script>
+	</body>
+</html>

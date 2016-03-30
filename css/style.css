@@ -1,0 +1,242 @@
+@import url(https://fonts.googleapis.com/css?family=Bree+Serif);
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+
+html, body {
+	background: #f1f1f1;
+	background: #222222;
+	/*background: #136a8a; 
+	background: -webkit-linear-gradient(to left, #136a8a , #267871); 
+	background: linear-gradient(to left, #136a8a , #267871);     */    
+	font-family: 'Bree Serif', serif;
+	height: 100%;
+	margin: 0px;
+}
+
+header {
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+	font-weight: bold;
+}
+
+header h1 {
+	color: #E6CA8C;
+}
+
+.float-right {
+	float: right;
+}
+
+.float-left {
+	float: left;
+}
+
+/*start navbar*/
+.left-nav {
+	position: fixed;
+	width: auto;
+	height: 100%;
+	left: 250px;
+	margin-left: -280px;
+	font-family: 'Bree Serif';
+	/*overflow-y: auto;*/
+}
+
+.nav-button {
+	display: block;
+	background-color: #f7f7f7;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e7e7e7));
+	background-image: -webkit-linear-gradient(top, #f7f7f7, #e7e7e7); 
+	background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7); 
+	background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7); 
+	background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7); 
+	color: #a7a7a7;
+	margin: 36px;
+	width: 120px;
+	height: 120px;
+	position: relative;
+	text-align: center;
+	line-height: 120px;
+	border-radius: 50%;
+	box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+}
+
+.nav-button:hover{
+  text-decoration: none;
+  color: #555;
+  background: #f5f5f5;
+}
+
+.nav-button:before {
+  content: "";
+  display: block;
+  background: #fff;
+  position: absolute;
+  top: -13px;
+  left: -13px;
+  bottom: -13px;
+  right: -13px;
+  z-index: -1;
+  border-radius: 50%;
+  box-shadow: inset 0px 8px 48px #ddd;
+}
+
+.nav-button:hover:before {
+	box-shadow: inset 0px 8px 48px orange;
+}
+
+.nav-button:after {
+	position: absolute;
+	top: 1px;
+	left: 0px;
+	content: "";
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	box-shadow: 0 0 0 5px grey;
+}
+
+.nav-button:hover:after {
+	transform: scale(1.2, 1.2);
+	transform: transform 0.2;
+	box-shadow: 0 0 0 2px green;
+}
+
+.nav-button.clicked {
+	text-decoration: none;
+	color: #555;
+	background: #f5f5f5;
+}
+
+.nav-button.clicked:before {
+	box-shadow: inset 0px 8px 48px green;
+}
+
+.nav-button.clicked:after {
+	transform: scale(1.2, 1.2);
+	transform: transform 0.2;
+	box-shadow: 0 0 0 2px #ddd;
+}
+/*end navbar*/
+
+/*start sections*/
+section {
+	font-family: 'Droid Sans', sans-serif;
+	margin: 15px 0px;
+	background-color: #fff;
+	background-color: #f1f1f1;
+	border-radius: 1%;
+}
+
+section header {
+	/*font-family: 'Coming Soon', cursive;*/
+	font-family: 'Bree Serif', serif;
+	font-size: 20px;
+	font-weight: lighter;
+	padding: 10px;
+	margin: 15px 0px;
+	-webkit-box-shadow:0px 5px 5px lightgrey;
+	-moz-box-shadow:0px 5px 5px lightgrey;
+	box-shadow:0px 5px 5px lightgrey;
+}
+
+.translate-content, .fav-content {
+	font-size: 18px;
+	padding: 0px 15px 15px 15px;
+}
+
+.result-content {
+	font-size: 14px;
+	padding: 0px 15px 15px 15px;
+}
+
+.well {
+	text-align: center;
+}
+
+.well span {
+	padding: 0px 8px;
+}
+
+	/*start parameter section*/
+	.langPhrase {
+		outline: none;
+		border: none !important;
+		-webkit-box-shadow: none !important;
+		-moz-box-shadow: none !important;
+		box-shadow: none !important;
+		background-color: #fff;
+		width: 45%;
+		margin-left: 25%;
+		text-align: center;
+	}
+
+	.langPhrase-bar {
+		position: relative;
+		display: block;
+	}
+
+	.langPhrase-bar:before,
+	.langPhrase-bar:after {
+	  content: "";
+	  height: 2px;
+	  width: 0;
+	  bottom: 1px;
+	  position: absolute;
+	  background: #2196F3; 
+	  transition: 0.5s ease all;
+	}
+
+	.langPhrase-bar:before {
+	  left: 50%;
+	}
+
+	.langPhrase-bar:after {
+	  right: 50%; 
+	}
+
+	.langPhrase:focus ~ .langPhrase-bar:before,
+	.langPhrase:focus ~ .langPhrase-bar:after {
+		/*width: 50%;*/
+	}
+
+	.glyphicon-refresh, .glyphicon-globe {
+		cursor: pointer;
+	}
+	/*end parameters sectio*/
+
+	/*start result section*/
+	#result-empty {
+		margin: 5% 30%;
+		font-size: 20px;
+	}
+
+	#result-url {
+		display: block;
+	}
+
+	.saveToFav {
+		display: block;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+		/*start accordion for meanings*/
+		.ui-accordion-content {
+			font-family: 'Droid Sans', sans-serif;
+			font-size: 14px;
+			clear: both;
+			margin-top: 10px;
+		}
+		/*end accordion for meanings*/
+
+
+	/*end result section*/
+
+/*end sections*/
+
+
+
+
+ 

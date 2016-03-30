@@ -1,0 +1,64 @@
+Array ( 
+	[result] => ok 
+	[tuc] => Array 
+		( 
+			[0] => Array 
+				( 
+					[phrase] => Array 
+						(
+							[text] => hello [language] => en 
+						) 
+					[meanings] => Array 
+						( [0] => Array 
+							( [language] => en [text] => greeting ) 
+						  [1] => Array 
+						  	( [language] => en [text] => greeting ) 
+						) 
+					[meaningId] => 1.0180473352657E+18 [authors] => Array 
+						( [0] => 2695 ) 
+				) 
+			[1] => Array 
+				( 
+					[phrase] => Array 
+						( 
+							[text] => welcome [language] => en 
+						) 
+					[meanings] => Array 
+						( 
+							[0] => Array 
+								( [language] => en [text] => greeting given upon someone's arrival
+								) 
+							[1] => Array 
+								( [language] => en [text] => A greeting used when someone arrives. ) 
+						) 
+					[meaningId] => -7.8113516391674E+18 [authors] => Array 
+						( 
+							[0] => 60172 
+						) 
+				) 
+			[2] => Array 
+				( 
+					[meanings] => Array 
+						( 
+							[0] => Array ( [language] => pl [text] => hello) 
+							[1] => Array ( [language] => pl [text] => welcome ) 
+						) 
+					[meaningId] => 1.4243448691208E+18 [authors] => Array 
+						( 
+							[0] => 1 
+						) 
+				) 
+		) 
+	[phrase] => witaj [from] => pl [dest] => en [authors] => Array 
+		( 
+			[1] => Array 
+				( [U] => http://en.wiktionary.org [id] => 1 [N] => en.wiktionary.org [url] => https://glosbe.com/source/1 
+				) 
+			[2695] => Array 
+				( [U] => http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles.xml.bz2 [id] => 2695 [N] => Wiktionary [url] => https://glosbe.com/source/2695 
+				) 
+			[60172] => Array 
+				( [U] => http://www.omegawiki.org/ [id] => 60172 [N] => omegawiki [url] => https://glosbe.com/source/60172 
+				) 
+		) 
+) 
